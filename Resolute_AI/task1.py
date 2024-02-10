@@ -12,7 +12,7 @@ def main():
     # Load data
     @st.cache
     def load_data():
-        df = pd.read_excel('Resolute_AI\Data\Task1and2\train.xlsx')
+        df = pd.read_excel(r'C:\Users\Admin\Desktop\Datasets\Resolute_AI\Resolute_AI\Data\Task1and2\train.xlsx')
         df = df.drop(columns=['target'])
         return df
 
