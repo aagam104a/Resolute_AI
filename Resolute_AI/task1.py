@@ -5,6 +5,8 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn.decomposition import PCA
 import plotly.express as px
+import requests
+from io import BytesIO
 
 def main():
     st.title('K-Means Clustering with Streamlit')
@@ -12,7 +14,10 @@ def main():
     # Load data
     @st.cache
     def load_data():
-        df = pd.read_excel('train.xlsx')
+        url = 'https://github.com/aagam104a/Resolute_AI/blob/Data/Resolute_AI/train.xlsx'
+        response = requests.get(url)
+        excel_data = response.content
+        df = pd.read_excel(BytesIO(excel_data), engine='openpyxl')
         df = df.drop(columns=['target'])
         return df
 
