@@ -12,7 +12,7 @@ def main():
     # Load data
     @st.cache
     def load_data():
-        df = pd.read_excel('./Data/Task1and2/train.xlsx')
+        df = pd.read_excel('train.xlsx')
         df = df.drop(columns=['target'])
         return df
 
